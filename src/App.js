@@ -16,7 +16,6 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import Login from './Features/Auth/Login';
 
-
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -51,12 +50,11 @@ class App extends Component {
                 Vendor Directory
               </Typography>
               
-
-      
             </Toolbar>
           </AppBar>
           <Login/>
    </div>
+   
   );
 
   }

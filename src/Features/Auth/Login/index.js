@@ -5,13 +5,10 @@ import { bindActionCreators } from 'redux';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
-import { startLogin } from '../actions.js';
+import { loadSuccess, startLogin, loadFailed } from '../actions';
 import styles from './styles.css';
-  
     
 class Login extends Component {
-  
-
   render() {
      console.log(this.props)
     return (
@@ -30,23 +27,22 @@ class Login extends Component {
           className="textField"
         />
     
-      <Button raised color="primary" className={styles.button}>
+      <Button raised color="primary" className={styles.button}
+      onClick = {this.props.login}
+      >
         Login
       </Button>
-        </div>
+              </div>
   );
-
   }
 }
-
 const mapStateToProps = state => ({ global: state });
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-      login: bindActionCreators(startLogin, dispatch)
-  };
+  return  bindActionCreators({ login: startLogin,
+    loadSuccess,
+    loadFailed
+  }, dispatch)
 };
-
-
    
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

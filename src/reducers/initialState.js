@@ -2,5 +2,6 @@
 	vendors: [],
 	auth: {
 	    isLoggedIn: false
-	}
+	},
+	dataFetched: []
 };
